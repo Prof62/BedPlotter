@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8722533319431AEB001B7CDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8722533219431AEA001B7CDC /* Cocoa.framework */; };
+		8722533D19431AEB001B7CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8722533B19431AEB001B7CDC /* InfoPlist.strings */; };
+		8722533F19431AEB001B7CDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8722533E19431AEB001B7CDC /* main.m */; };
+		8722534319431AEB001B7CDC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8722534119431AEB001B7CDC /* Credits.rtf */; };
+		8722534619431AEB001B7CDC /* bedplotterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8722534519431AEB001B7CDC /* bedplotterAppDelegate.m */; };
+		8722534919431AEB001B7CDC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8722534719431AEB001B7CDC /* MainMenu.xib */; };
+		8722534B19431AEB001B7CDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8722534A19431AEB001B7CDC /* Images.xcassets */; };
+		8722535219431AEB001B7CDC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8722535119431AEB001B7CDC /* XCTest.framework */; };
+		8722535319431AEB001B7CDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8722533219431AEA001B7CDC /* Cocoa.framework */; };
+		8722535B19431AEB001B7CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8722535919431AEB001B7CDC /* InfoPlist.strings */; };
+		8722535D19431AEB001B7CDC /* BedPlotterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8722535C19431AEB001B7CDC /* BedPlotterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8722535419431AEB001B7CDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8722532719431AEA001B7CDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8722532E19431AEA001B7CDC;
+			remoteInfo = BedPlotter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8722532F19431AEA001B7CDC /* BedPlotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedPlotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8722533219431AEA001B7CDC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8722533519431AEB001B7CDC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8722533619431AEB001B7CDC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8722533719431AEB001B7CDC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8722533A19431AEB001B7CDC /* BedPlotter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedPlotter-Info.plist"; sourceTree = "<group>"; };
+		8722533C19431AEB001B7CDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8722533E19431AEB001B7CDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8722534019431AEB001B7CDC /* BedPlotter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BedPlotter-Prefix.pch"; sourceTree = "<group>"; };
+		8722534219431AEB001B7CDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		8722534419431AEB001B7CDC /* bedplotterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bedplotterAppDelegate.h; sourceTree = "<group>"; };
+		8722534519431AEB001B7CDC /* bedplotterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bedplotterAppDelegate.m; sourceTree = "<group>"; };
+		8722534819431AEB001B7CDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8722534A19431AEB001B7CDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8722535019431AEB001B7CDC /* BedPlotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedPlotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8722535119431AEB001B7CDC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8722535819431AEB001B7CDC /* BedPlotterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedPlotterTests-Info.plist"; sourceTree = "<group>"; };
+		8722535A19431AEB001B7CDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8722535C19431AEB001B7CDC /* BedPlotterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedPlotterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8722532C19431AEA001B7CDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8722533319431AEB001B7CDC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8722534D19431AEB001B7CDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8722535319431AEB001B7CDC /* Cocoa.framework in Frameworks */,
+				8722535219431AEB001B7CDC /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8722532619431AEA001B7CDC = {
+			isa = PBXGroup;
+			children = (
+				8722533819431AEB001B7CDC /* BedPlotter */,
+				8722535619431AEB001B7CDC /* BedPlotterTests */,
+				8722533119431AEA001B7CDC /* Frameworks */,
+				8722533019431AEA001B7CDC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8722533019431AEA001B7CDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8722532F19431AEA001B7CDC /* BedPlotter.app */,
+				8722535019431AEB001B7CDC /* BedPlotterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8722533119431AEA001B7CDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8722533219431AEA001B7CDC /* Cocoa.framework */,
+				8722535119431AEB001B7CDC /* XCTest.framework */,
+				8722533419431AEB001B7CDC /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8722533419431AEB001B7CDC /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8722533519431AEB001B7CDC /* AppKit.framework */,
+				8722533619431AEB001B7CDC /* CoreData.framework */,
+				8722533719431AEB001B7CDC /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8722533819431AEB001B7CDC /* BedPlotter */ = {
+			isa = PBXGroup;
+			children = (
+				8722534419431AEB001B7CDC /* bedplotterAppDelegate.h */,
+				8722534519431AEB001B7CDC /* bedplotterAppDelegate.m */,
+				8722534719431AEB001B7CDC /* MainMenu.xib */,
+				8722534A19431AEB001B7CDC /* Images.xcassets */,
+				8722533919431AEB001B7CDC /* Supporting Files */,
+			);
+			path = BedPlotter;
+			sourceTree = "<group>";
+		};
+		8722533919431AEB001B7CDC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8722533A19431AEB001B7CDC /* BedPlotter-Info.plist */,
+				8722533B19431AEB001B7CDC /* InfoPlist.strings */,
+				8722533E19431AEB001B7CDC /* main.m */,
+				8722534019431AEB001B7CDC /* BedPlotter-Prefix.pch */,
+				8722534119431AEB001B7CDC /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8722535619431AEB001B7CDC /* BedPlotterTests */ = {
+			isa = PBXGroup;
+			children = (
+				8722535C19431AEB001B7CDC /* BedPlotterTests.m */,
+				8722535719431AEB001B7CDC /* Supporting Files */,
+			);
+			path = BedPlotterTests;
+			sourceTree = "<group>";
+		};
+		8722535719431AEB001B7CDC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8722535819431AEB001B7CDC /* BedPlotterTests-Info.plist */,
+				8722535919431AEB001B7CDC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8722532E19431AEA001B7CDC /* BedPlotter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8722536019431AEB001B7CDC /* Build configuration list for PBXNativeTarget "BedPlotter" */;
+			buildPhases = (
+				8722532B19431AEA001B7CDC /* Sources */,
+				8722532C19431AEA001B7CDC /* Frameworks */,
+				8722532D19431AEA001B7CDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BedPlotter;
+			productName = BedPlotter;
+			productReference = 8722532F19431AEA001B7CDC /* BedPlotter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8722534F19431AEB001B7CDC /* BedPlotterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8722536319431AEB001B7CDC /* Build configuration list for PBXNativeTarget "BedPlotterTests" */;
+			buildPhases = (
+				8722534C19431AEB001B7CDC /* Sources */,
+				8722534D19431AEB001B7CDC /* Frameworks */,
+				8722534E19431AEB001B7CDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8722535519431AEB001B7CDC /* PBXTargetDependency */,
+			);
+			name = BedPlotterTests;
+			productName = BedPlotterTests;
+			productReference = 8722535019431AEB001B7CDC /* BedPlotterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8722532719431AEA001B7CDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = bedplotter;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Mark Dunsford";
+				TargetAttributes = {
+					8722534F19431AEB001B7CDC = {
+						TestTargetID = 8722532E19431AEA001B7CDC;
+					};
+				};
+			};
+			buildConfigurationList = 8722532A19431AEA001B7CDC /* Build configuration list for PBXProject "BedPlotter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8722532619431AEA001B7CDC;
+			productRefGroup = 8722533019431AEA001B7CDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8722532E19431AEA001B7CDC /* BedPlotter */,
+				8722534F19431AEB001B7CDC /* BedPlotterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8722532D19431AEA001B7CDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8722533D19431AEB001B7CDC /* InfoPlist.strings in Resources */,
+				8722534B19431AEB001B7CDC /* Images.xcassets in Resources */,
+				8722534319431AEB001B7CDC /* Credits.rtf in Resources */,
+				8722534919431AEB001B7CDC /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8722534E19431AEB001B7CDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8722535B19431AEB001B7CDC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8722532B19431AEA001B7CDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8722533F19431AEB001B7CDC /* main.m in Sources */,
+				8722534619431AEB001B7CDC /* bedplotterAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8722534C19431AEB001B7CDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8722535D19431AEB001B7CDC /* BedPlotterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8722535519431AEB001B7CDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8722532E19431AEA001B7CDC /* BedPlotter */;
+			targetProxy = 8722535419431AEB001B7CDC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8722533B19431AEB001B7CDC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8722533C19431AEB001B7CDC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8722534119431AEB001B7CDC /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8722534219431AEB001B7CDC /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		8722534719431AEB001B7CDC /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8722534819431AEB001B7CDC /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		8722535919431AEB001B7CDC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8722535A19431AEB001B7CDC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8722535E19431AEB001B7CDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8722535F19431AEB001B7CDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8722536119431AEB001B7CDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedPlotter/BedPlotter-Prefix.pch";
+				INFOPLIST_FILE = "BedPlotter/BedPlotter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8722536219431AEB001B7CDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedPlotter/BedPlotter-Prefix.pch";
+				INFOPLIST_FILE = "BedPlotter/BedPlotter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8722536419431AEB001B7CDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BedPlotter.app/Contents/MacOS/BedPlotter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedPlotter/BedPlotter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BedPlotterTests/BedPlotterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8722536519431AEB001B7CDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BedPlotter.app/Contents/MacOS/BedPlotter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedPlotter/BedPlotter-Prefix.pch";
+				INFOPLIST_FILE = "BedPlotterTests/BedPlotterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8722532A19431AEA001B7CDC /* Build configuration list for PBXProject "BedPlotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8722535E19431AEB001B7CDC /* Debug */,
+				8722535F19431AEB001B7CDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8722536019431AEB001B7CDC /* Build configuration list for PBXNativeTarget "BedPlotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8722536119431AEB001B7CDC /* Debug */,
+				8722536219431AEB001B7CDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8722536319431AEB001B7CDC /* Build configuration list for PBXNativeTarget "BedPlotterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8722536419431AEB001B7CDC /* Debug */,
+				8722536519431AEB001B7CDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8722532719431AEA001B7CDC /* Project object */;
+}

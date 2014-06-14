@@ -7,9 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MJDSceneView.h"
 
 @interface bedplotterAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+
+@property (strong, nonatomic) IBOutlet MJDSceneView *sceneView;
+
+- (void)homeCamera:(id)sender;
 
 @end

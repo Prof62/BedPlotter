@@ -10,9 +10,15 @@
 
 @implementation bedplotterAppDelegate
 
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+}
+
+- (IBAction)homeCamera:(id)sender
+{
+    [_sceneView homeCamera];
 }
 
 @end

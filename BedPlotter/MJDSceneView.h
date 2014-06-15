@@ -12,6 +12,6 @@
 @interface MJDSceneView : SCNView
 
 -(void)homeCamera;
-
+-(void)updateUI;
 
 @end

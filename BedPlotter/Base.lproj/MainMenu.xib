@@ -11,10 +11,18 @@
         <customObject id="Voe-Tx-rLC" customClass="bedplotterAppDelegate">
             <connections>
                 <outlet property="G29Data" destination="khX-HO-frF" id="JUd-Pg-08K"/>
+                <outlet property="hideDummyPointsCheck" destination="zFk-az-ya5" id="mbW-x7-wG5"/>
                 <outlet property="sceneView" destination="oVx-ID-ldD" id="LDl-KB-MgJ"/>
+                <outlet property="showBedCheck" destination="Ry1-7J-MAm" id="oBm-mk-rZe"/>
+                <outlet property="showGridCheck" destination="T6g-b1-jMv" id="t5k-uC-qot"/>
                 <outlet property="showLines" destination="EiT-Mj-1SZ" id="mna-K5-unc"/>
+                <outlet property="showPointBarsCheck" destination="juT-XR-YX2" id="gcI-i6-xTn"/>
                 <outlet property="showPointCheck" destination="nso-bP-Wvs" id="OT7-6b-heb"/>
+                <outlet property="showPointLabelsCheck" destination="6IV-PO-HKA" id="9Lr-x3-gEH"/>
                 <outlet property="showPoints" destination="EiT-Mj-1SZ" id="uKR-uX-fNj"/>
+                <outlet property="showSurfaceCheck" destination="NCU-o3-miW" id="o5O-dB-Fcx"/>
+                <outlet property="showTowersCheck" destination="lzC-aM-UkT" id="SyB-pI-Xf3"/>
+                <outlet property="updateG29Data" destination="zGr-ZT-cKc" id="Mvd-ux-urv"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -738,6 +746,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="hxi-cE-xP4"/>
+                        </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="lzC-aM-UkT">
                         <rect key="frame" x="18" y="69" width="100" height="18"/>
@@ -746,6 +757,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="9jj-ha-Iyo"/>
+                        </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="nso-bP-Wvs">
                         <rect key="frame" x="139" y="89" width="150" height="18"/>
@@ -758,7 +772,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="showPoints:" target="Voe-Tx-rLC" id="I6G-9A-U56"/>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="sh5-Ti-Tdw"/>
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="juT-XR-YX2">
@@ -768,6 +782,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="aLp-fP-8sp"/>
+                        </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="6IV-PO-HKA">
                         <rect key="frame" x="139" y="49" width="150" height="18"/>
@@ -776,6 +793,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="WVQ-C7-UlQ"/>
+                        </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="NCU-o3-miW">
                         <rect key="frame" x="18" y="49" width="100" height="18"/>
@@ -784,6 +804,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="dfB-66-vFI"/>
+                        </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="T6g-b1-jMv">
                         <rect key="frame" x="18" y="29" width="100" height="18"/>
@@ -792,6 +815,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="8gK-RO-0qZ"/>
+                        </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="zFk-az-ya5">
                         <rect key="frame" x="139" y="29" width="150" height="18"/>
@@ -800,6 +826,9 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="checkChanged:" target="Voe-Tx-rLC" id="bAO-eJ-0y5"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gkd-W4-1IQ">
                         <rect key="frame" x="480" y="113" width="70" height="17"/>
@@ -813,6 +842,21 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zGr-ZT-cKc">
+                        <rect key="frame" x="804" y="106" width="28" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="bYc-2H-QuV"/>
+                            <constraint firstAttribute="height" constant="22" id="oZB-hg-Bcb"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="102-XU-87l">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="updateG29Data:" target="Voe-Tx-rLC" id="Muf-Uk-764"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zFk-az-ya5" firstAttribute="top" secondItem="6IV-PO-HKA" secondAttribute="bottom" constant="6" symbolic="YES" id="0ae-KK-Jfs"/>
@@ -830,6 +874,7 @@
                     <constraint firstItem="NCU-o3-miW" firstAttribute="trailing" secondItem="lzC-aM-UkT" secondAttribute="trailing" id="BMp-h0-glF"/>
                     <constraint firstItem="NCU-o3-miW" firstAttribute="top" secondItem="lzC-aM-UkT" secondAttribute="bottom" constant="6" symbolic="YES" id="Btk-rA-eXz"/>
                     <constraint firstItem="6IV-PO-HKA" firstAttribute="top" secondItem="juT-XR-YX2" secondAttribute="bottom" constant="6" id="D0N-LF-P0S"/>
+                    <constraint firstItem="zGr-ZT-cKc" firstAttribute="top" secondItem="oVx-ID-ldD" secondAttribute="bottom" constant="3" id="EeM-gk-b3z"/>
                     <constraint firstItem="juT-XR-YX2" firstAttribute="trailing" secondItem="nso-bP-Wvs" secondAttribute="trailing" id="Fzx-zd-7Gs"/>
                     <constraint firstItem="NCU-o3-miW" firstAttribute="top" secondItem="lzC-aM-UkT" secondAttribute="bottom" constant="6" id="GSL-VX-vtk"/>
                     <constraint firstAttribute="bottom" secondItem="T6g-b1-jMv" secondAttribute="bottom" constant="31" id="GqH-Rr-PKl"/>
@@ -858,6 +903,7 @@
                     <constraint firstItem="T6g-b1-jMv" firstAttribute="leading" secondItem="NCU-o3-miW" secondAttribute="leading" id="nRj-pG-W56"/>
                     <constraint firstItem="oVx-ID-ldD" firstAttribute="top" secondItem="Mr6-of-hew" secondAttribute="bottom" constant="1" id="ol0-gi-RoX"/>
                     <constraint firstItem="Ry1-7J-MAm" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="rxu-Wm-XpM"/>
+                    <constraint firstItem="oVx-ID-ldD" firstAttribute="trailing" secondItem="zGr-ZT-cKc" secondAttribute="trailing" id="tJz-8b-Gn0"/>
                     <constraint firstItem="nso-bP-Wvs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oVx-ID-ldD" secondAttribute="bottom" constant="28" id="vt1-TL-XiF"/>
                     <constraint firstItem="khX-HO-frF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zFk-az-ya5" secondAttribute="trailing" constant="20" id="yy6-n3-Nkj"/>
                     <constraint firstItem="DL8-wv-rLn" firstAttribute="leading" secondItem="Mr6-of-hew" secondAttribute="trailing" constant="8" id="zgQ-bN-KFk"/>
@@ -867,5 +913,6 @@
     </objects>
     <resources>
         <image name="NSHomeTemplate" width="14" height="13"/>
+        <image name="NSRefreshTemplate" width="10" height="12"/>
     </resources>
 </document>

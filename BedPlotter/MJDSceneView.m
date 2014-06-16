@@ -10,8 +10,6 @@
 
 @interface MJDSceneView ()
 
-@property (strong, nonatomic) NSArray *points;
-
 @end
 
 @implementation MJDSceneView
@@ -43,6 +41,51 @@ float points[7][7] = {
 -(void)awakeFromNib
 {
     [self updateUI];
+}
+
+-(void)setOptionsWithBedOn:(Boolean) mShowBed
+                  towersOn:(Boolean) mShowTowers
+                   fakesOn:(Boolean) mShowFakes
+                  pointsOn:(Boolean) mShowPoints
+             pointLabelsOn:(Boolean) mShowPointLabels
+                   linesOn:(Boolean) mShowLines
+                    gridOn:(Boolean) mShowGrid
+                   planeOn:(Boolean) mShowPlane
+{
+    showBed = mShowBed;
+    showTowers = mShowTowers;
+    showFakes = mShowFakes;
+    showPoints = mShowPoints;
+    showPointLabels = mShowPointLabels;
+    showLines = mShowLines;
+    showGrid = mShowGrid;
+    showPlane = mShowPlane;
+}
+
+-(void) setPoints:(NSString *) G29Data
+{
+    NSArray *rows = [[G29Data stringByTrimmingCharactersInSet:
+                      [NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    for (int y=0; y<7; y++)
+        {
+        if(y<rows.count)
+            {
+        NSArray *cols = [[rows[y] stringByTrimmingCharactersInSet:
+                          [NSCharacterSet whitespaceAndNewlineCharacterSet]] componentsSeparatedByString:@" "];
+        for (int x=0; x<7; x++)
+            {
+            points[y][x] = x<cols.count ? [cols[x] floatValue] : -1.0f;  // use -1 if point missing.
+            }
+            }
+        else
+                // Handle entire missing row
+            {
+            for (int x=0; x<7; x++)
+                {
+                points[y][x] = -1.0f;
+                }
+            }
+        }
 }
 
 - (void) updateUI

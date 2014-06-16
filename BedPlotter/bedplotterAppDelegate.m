@@ -37,10 +37,29 @@
     [_sceneView homeCamera];
 }
 
-- (IBAction)GD29DataChanged:(NSTextField *)sender {
-    
+- (IBAction)GD29DataChanged:(NSTextField *)sender
+{
+    [_sceneView setPoints: _G29Data.stringValue];
+    [_sceneView updateUI];
 }
 
-- (IBAction)showPoints:(NSButton *)sender {
+
+- (IBAction)checkChanged:(NSButton *)sender;
+{
+    [_sceneView setOptionsWithBedOn:_showBedCheck.state==NSOnState
+                           towersOn:_showTowersCheck.state==NSOnState
+                            fakesOn:!_hideDummyPointsCheck.state==NSOnState
+                           pointsOn:_showPointCheck.state==NSOnState
+                      pointLabelsOn:_showPointLabelsCheck.state==NSOnState
+                            linesOn:_showPointBarsCheck.state==NSOnState
+                             gridOn:_showGridCheck.state==NSOnState
+                            planeOn:_showSurfaceCheck.state==NSOnState];
+    [_sceneView updateUI];
 }
+
+- (IBAction)updateG29Data:(NSButton *)sender {
+    [_sceneView setPoints: _G29Data.stringValue];
+    [_sceneView updateUI];
+}
+
 @end

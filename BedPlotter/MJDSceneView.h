@@ -13,5 +13,15 @@
 
 -(void)homeCamera;
 -(void)updateUI;
+-(void)setOptionsWithBedOn:(Boolean) mShowBed
+                  towersOn:(Boolean) mShowTowers
+                   fakesOn:(Boolean) mShowFakes
+                  pointsOn:(Boolean) mShowPoints
+             pointLabelsOn:(Boolean) mShowPointLabels
+                   linesOn:(Boolean) mShowLines
+                    gridOn:(Boolean) mShowGrid
+                   planeOn:(Boolean) mShowPlane;
+
+-(void) setPoints:(NSString *) G29Data;
 
 @end

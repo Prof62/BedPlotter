@@ -23,8 +23,10 @@
                                                       screen:screen];
     [window setLevel: CGShieldingWindowLevel()];
 
-        // Initialize your application
+        // Initialize the application
 
+    
+        // Make sure the view matches the selected options
     [self sendOptions ];
 
 }
@@ -32,6 +34,10 @@
 - (void)updateUI:(id)sender
 {
     [_sceneView updateUI];
+}
+
+- (IBAction)printChart:(id)sender {
+    [_sceneView updateUIShowPrintDialog:true printSender:sender];
 }
 
 - (IBAction)homeCamera:(id)sender

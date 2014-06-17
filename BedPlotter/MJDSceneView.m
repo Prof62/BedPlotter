@@ -104,6 +104,11 @@ float points[7][7] = {
 
 - (void) updateUI
 {
+    [self updateUIShowPrintDialog:false printSender:nil];
+}
+
+- (void) updateUIShowPrintDialog:(Boolean) doPrint printSender:(id) sender
+{
         // Invisible material for hidden objects
     SCNMaterial *hiddenMaterial = [SCNMaterial material];
     hiddenMaterial.diffuse.contents = [NSColor clearColor];
@@ -146,7 +151,7 @@ float points[7][7] = {
     gridLineMaterial.diffuse.contents  = [NSColor yellowColor];
     gridLineMaterial.specular.contents = [NSColor blackColor];
     gridLineMaterial.shininess = 1.0;
-    gridLineMaterial.transparency = 0.6f;
+    gridLineMaterial.transparency = 1.f;
     gridLineMaterial.doubleSided = true;
 
         // Use a green material for the bed plane
@@ -155,7 +160,16 @@ float points[7][7] = {
     planeMaterial.specular.contents = [NSColor blackColor];
     planeMaterial.shininess = 1.0;
     planeMaterial.transparency = 0.1f;
-    planeMaterial.doubleSided = false;
+    planeMaterial.doubleSided = true;
+
+
+        // Use a black material for the wireframe
+    SCNMaterial *wireFrameMaterial = [SCNMaterial material];
+    wireFrameMaterial.diffuse.contents  = [NSColor blackColor];
+    wireFrameMaterial.specular.contents = [NSColor whiteColor];
+    wireFrameMaterial.shininess = 1.0;
+    wireFrameMaterial.transparency = 1.0f;
+    wireFrameMaterial.doubleSided = true;
 
     self.backgroundColor = [NSColor grayColor];
 
@@ -371,7 +385,7 @@ float points[7][7] = {
 
             SCNGeometry *geometry = makeWireFrame();
 
-            geometry.materials = @[planeMaterial];
+            geometry.materials = @[wireFrameMaterial];
 
             SCNNode *planeNode = [SCNNode nodeWithGeometry:geometry];
             planeNode.position = SCNVector3Make(0, 0, 0);
@@ -379,6 +393,9 @@ float points[7][7] = {
             
             }
         }
+    if (doPrint) {
+        [self print:self];
+    }
 }
 
 SCNGeometry* makeCube()

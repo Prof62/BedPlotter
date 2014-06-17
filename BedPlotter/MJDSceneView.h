@@ -13,6 +13,7 @@
 
 -(void)homeCamera;
 -(void)updateUI;
+-(void) updateUIShowPrintDialog:(Boolean) doPrint printSender:(id) sender;
 -(void)setOptionsWithBedOn:(Boolean) mShowBed
                   towersOn:(Boolean) mShowTowers
                    fakesOn:(Boolean) mShowFakes

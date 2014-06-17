@@ -19,6 +19,7 @@
 @property (weak) IBOutlet NSButton *showTowersCheck;
 @property (weak) IBOutlet NSButton *showSurfaceCheck;
 @property (weak) IBOutlet NSButton *showGridCheck;
+@property (weak) IBOutlet NSButton *showWireFrameCheck;
 @property (weak) IBOutlet NSButton *showPointCheck;
 @property (weak) IBOutlet NSButton *showPointBarsCheck;
 @property (weak) IBOutlet NSButton *showPointLabelsCheck;

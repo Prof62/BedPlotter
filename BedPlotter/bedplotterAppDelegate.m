@@ -1,10 +1,10 @@
-//
-//  bedplotterAppDelegate.m
-//  BedPlotter
-//
-//  Created by Mark Dunsford on 07/06/2014.
-//  Copyright (c) 2014 Mark Dunsford. All rights reserved.
-//
+    //
+    //  bedplotterAppDelegate.m
+    //  BedPlotter
+    //
+    //  Created by Mark Dunsford on 07/06/2014.
+    //  Copyright (c) 2014 Mark Dunsford. All rights reserved.
+    //
 
 #import "bedplotterAppDelegate.h"
 
@@ -23,7 +23,9 @@
                                                       screen:screen];
     [window setLevel: CGShieldingWindowLevel()];
 
-    // Insert code here to initialize your application
+        // Initialize your application
+
+    [self sendOptions ];
 
 }
 
@@ -39,13 +41,18 @@
 
 - (IBAction)GD29DataChanged:(NSTextField *)sender
 {
-    [_sceneView setPoints: _G29Data.stringValue];
-    [_sceneView updateUI];
+    [self sendG29Data];
 }
 
 
 - (IBAction)checkChanged:(NSButton *)sender;
 {
+    [self sendOptions ];
+}
+
+-(void)sendOptions
+{
+    [_showPointLabelsCheck setEnabled:_showPointCheck.state==NSOnState];
     [_sceneView setOptionsWithBedOn:_showBedCheck.state==NSOnState
                            towersOn:_showTowersCheck.state==NSOnState
                             fakesOn:!_hideDummyPointsCheck.state==NSOnState
@@ -53,13 +60,23 @@
                       pointLabelsOn:_showPointLabelsCheck.state==NSOnState
                             linesOn:_showPointBarsCheck.state==NSOnState
                              gridOn:_showGridCheck.state==NSOnState
-                            planeOn:_showSurfaceCheck.state==NSOnState];
+                            planeOn:_showSurfaceCheck.state==NSOnState
+                        wireFrameOn:_showWireFrameCheck.state==NSOnState];
     [_sceneView updateUI];
 }
 
 - (IBAction)updateG29Data:(NSButton *)sender {
-    [_sceneView setPoints: _G29Data.stringValue];
-    [_sceneView updateUI];
+    [self sendG29Data];
 }
 
-@end
+-(void)sendG29Data
+{
+    if ( [_G29Data.stringValue length] > 0 )
+         {
+
+         [_sceneView setPoints: _G29Data.stringValue];
+         [_sceneView updateUI];
+         }
+         }
+         
+         @end

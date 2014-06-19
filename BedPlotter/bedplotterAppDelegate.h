@@ -14,6 +14,7 @@
 - (IBAction)GD29DataChanged:(NSTextField *)sender;
 - (IBAction)checkChanged:(NSButton *)sender;
 - (IBAction)updateG29Data:(NSButton *)sender;
+- (IBAction)populateDummyData:(id)sender;
 
 @property (weak) IBOutlet NSButton *showBedCheck;
 @property (weak) IBOutlet NSButton *showTowersCheck;
@@ -24,6 +25,7 @@
 @property (weak) IBOutlet NSButton *showPointBarsCheck;
 @property (weak) IBOutlet NSButton *showPointLabelsCheck;
 @property (weak) IBOutlet NSButton *hideDummyPointsCheck;
+@property (weak) IBOutlet NSButton *showColourMapCheck;
 
 @property (weak) IBOutlet NSTextField *G29Data;
 

@@ -59,6 +59,8 @@
 -(void)sendOptions
 {
     [_showPointLabelsCheck setEnabled:_showPointCheck.state==NSOnState];
+    [_showColourMapCheck setEnabled:_showSurfaceCheck.state==NSOnState];
+
     [_sceneView setOptionsWithBedOn:_showBedCheck.state==NSOnState
                            towersOn:_showTowersCheck.state==NSOnState
                             fakesOn:!_hideDummyPointsCheck.state==NSOnState
@@ -66,12 +68,32 @@
                       pointLabelsOn:_showPointLabelsCheck.state==NSOnState
                             linesOn:_showPointBarsCheck.state==NSOnState
                              gridOn:_showGridCheck.state==NSOnState
-                            planeOn:_showSurfaceCheck.state==NSOnState
+                          surfaceOn:_showSurfaceCheck.state==NSOnState
+                        colourMapOn:_showColourMapCheck.state==NSOnState
                         wireFrameOn:_showWireFrameCheck.state==NSOnState];
+
     [_sceneView updateUI];
 }
 
 - (IBAction)updateG29Data:(NSButton *)sender {
+    [self sendG29Data];
+}
+
+- (IBAction)populateDummyData:(id)sender {
+
+
+    NSString *dummy1 = @"-0.088 -0.088 -0.088 -0.125 -0.150 -0.150 -0.150";
+    NSString *dummy2 = @"-0.013 -0.013 -0.025 -0.037 -0.050 -0.087 -0.087";
+    NSString *dummy3 = @"-0.050 0.012 0.037 0.050 -0.013 -0.000 0.112";
+    NSString *dummy4 = @"-0.187 -0.100 -0.037 0.013 0.063 0.113 0.200";
+    NSString *dummy5 = @"-0.200 -0.162 -0.050 0.000 0.000 0.088 0.288";
+    NSString *dummy6 = @"-0.287 -0.287 -0.187 -0.087 0.000 0.138 0.138";
+    NSString *dummy7 = @"0.225 0.225 0.225 -0.112 0.025 0.025 0.025";
+
+     NSArray *dummyArray = [[NSArray alloc] initWithObjects:dummy1, dummy2, dummy3, dummy4, dummy5, dummy6, dummy7, nil];
+     NSString *dummy = [dummyArray componentsJoinedByString:@"\n"];
+
+    [_G29Data setStringValue:dummy];
     [self sendG29Data];
 }
 

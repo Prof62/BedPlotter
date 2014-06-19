@@ -25,7 +25,8 @@ bool showPoints = true;
 bool showPointLabels = true;
 bool showLines = true;
 bool showGrid = true;
-bool showPlane = false;
+bool showSurface = false;
+bool showColourMap = true;
 bool showWireFrame = true;
 bool validData = false;
 
@@ -51,8 +52,9 @@ float points[7][7] = {
              pointLabelsOn:(Boolean) mShowPointLabels
                    linesOn:(Boolean) mShowLines
                     gridOn:(Boolean) mShowGrid
-                   planeOn:(Boolean) mShowPlane
-                   wireFrameOn:(Boolean) mShowWireFrame
+                 surfaceOn:(Boolean) mShowSurface
+               colourMapOn:(Boolean) mShowColourMap
+               wireFrameOn:(Boolean) mShowWireFrame
 {
     showBed = mShowBed;
     showTowers = mShowTowers;
@@ -61,7 +63,8 @@ float points[7][7] = {
     showPointLabels = mShowPointLabels;
     showLines = mShowLines;
     showGrid = mShowGrid;
-    showPlane = mShowPlane;
+    showSurface = mShowSurface;
+    showColourMap = mShowColourMap;
     showWireFrame = mShowWireFrame;
 }
 
@@ -109,69 +112,7 @@ float points[7][7] = {
 
 - (void) updateUIShowPrintDialog:(Boolean) doPrint printSender:(id) sender
 {
-        // Invisible material for hidden objects
-    SCNMaterial *hiddenMaterial = [SCNMaterial material];
-    hiddenMaterial.diffuse.contents = [NSColor clearColor];
-        //hiddenMaterial.specular.contents = [NSColor clearColor];
-
-        // Use a yellow kapton film material for the bed
-    SCNMaterial *bedMaterial = [SCNMaterial material];
-    bedMaterial.diffuse.contents  = [NSColor yellowColor];
-    bedMaterial.specular.contents = [NSColor whiteColor];
-    bedMaterial.shininess = 1.0;
-    bedMaterial.transparency = showBed?0.3f:0.0f;
-    bedMaterial.doubleSided = true;
-
-        // Use a blue glass material for the glass bed
-    SCNMaterial *glassMaterial = [SCNMaterial material];
-    glassMaterial.diffuse.contents  = [NSColor blueColor];
-    glassMaterial.specular.contents = [NSColor whiteColor];
-    glassMaterial.shininess = 1.0;
-    glassMaterial.transparency = showBed?0.02f:0.0f;
-    glassMaterial.doubleSided = true;
-
-        // Use a blue glass material for the towers
-    SCNMaterial *towerMaterial = [SCNMaterial material];
-    towerMaterial.diffuse.contents  = [NSColor blueColor];
-    towerMaterial.specular.contents = [NSColor whiteColor];
-    towerMaterial.shininess = 1.0;
-    towerMaterial.transparency = 0.04;
-    towerMaterial.doubleSided = true;
-
-        // Use a dark grey glass material for the tower labels
-    SCNMaterial *towerLabelMaterial = [SCNMaterial material];
-    towerLabelMaterial.diffuse.contents  = [NSColor darkGrayColor];
-    towerMaterial.specular.contents = [NSColor blackColor];
-    towerLabelMaterial.shininess = 1.0;
-    towerLabelMaterial.transparency = 1;
-    towerLabelMaterial.doubleSided = true;
-
-        // Use a yellow material for the grid
-    SCNMaterial *gridLineMaterial = [SCNMaterial material];
-    gridLineMaterial.diffuse.contents  = [NSColor yellowColor];
-    gridLineMaterial.specular.contents = [NSColor blackColor];
-    gridLineMaterial.shininess = 1.0;
-    gridLineMaterial.transparency = 1.f;
-    gridLineMaterial.doubleSided = true;
-
-        // Use a green material for the bed plane
-    SCNMaterial *planeMaterial = [SCNMaterial material];
-    planeMaterial.diffuse.contents  = [NSColor greenColor];
-    planeMaterial.specular.contents = [NSColor blackColor];
-    planeMaterial.shininess = 1.0;
-    planeMaterial.transparency = 0.1f;
-    planeMaterial.doubleSided = true;
-
-
-        // Use a black material for the wireframe
-    SCNMaterial *wireFrameMaterial = [SCNMaterial material];
-    wireFrameMaterial.diffuse.contents  = [NSColor blackColor];
-    wireFrameMaterial.specular.contents = [NSColor whiteColor];
-    wireFrameMaterial.shininess = 1.0;
-    wireFrameMaterial.transparency = 1.0f;
-    wireFrameMaterial.doubleSided = true;
-
-    self.backgroundColor = [NSColor grayColor];
+    self.backgroundColor = [NSColor darkGrayColor];
 
         // Create an empty scene
     SCNScene *scene = [SCNScene scene];
@@ -183,17 +124,16 @@ float points[7][7] = {
     camera.yFov = 45;
     cameraNode = [SCNNode node];
     cameraNode.camera = camera;
-    cameraNode.position = SCNVector3Make(0, 6, 20);
+    cameraNode.position = SCNVector3Make(0, 5, 18);
     cameraNode.rotation = SCNVector4Make(1, 0, 0, DegreesToRadians(-15));
     [scene.rootNode addChildNode:cameraNode];
-
 
 
         // Create ambient light
     SCNLight *ambientLight = [SCNLight light];
     SCNNode *ambientLightNode = [SCNNode node];
     ambientLight.type = SCNLightTypeAmbient;
-    ambientLight.color = [NSColor colorWithDeviceWhite:0.1 alpha:1.0];
+    ambientLight.color = [NSColor colorWithDeviceWhite:0.6 alpha:1.0];
     ambientLightNode.light = ambientLight;
     [scene.rootNode addChildNode:ambientLightNode];
 
@@ -202,18 +142,23 @@ float points[7][7] = {
     SCNNode *diffuseLightNode = [SCNNode node];
     diffuseLight.type = SCNLightTypeOmni;
     diffuseLightNode.light = diffuseLight;
-    diffuseLightNode.position = SCNVector3Make(-100, 100, 100);
+    diffuseLightNode.position = SCNVector3Make(30, 25, 18);
     [scene.rootNode addChildNode:diffuseLightNode];
 
         // Create the lower diffuse light
     SCNLight *diffuseLight2 = [SCNLight light];
     SCNNode *diffuseLight2Node = [SCNNode node];
     diffuseLight2.type = SCNLightTypeOmni;
-    diffuseLight2.color = [NSColor colorWithDeviceWhite:0.5 alpha:1.0];
+    diffuseLight2.color = [NSColor colorWithDeviceWhite:0.8 alpha:1.0];
     diffuseLight2Node.light = diffuseLight2;
-    diffuseLight2Node.position = SCNVector3Make(100, -100, -100);
+    diffuseLight2Node.position = SCNVector3Make(-50, 30, -30);
     [scene.rootNode addChildNode:diffuseLight2Node];
 
+
+        // Invisible material for hidden objects
+    SCNMaterial *hiddenMaterial = [SCNMaterial material];
+    hiddenMaterial.diffuse.contents = [NSColor clearColor];
+    hiddenMaterial.specular.contents = [NSColor clearColor];
 
         // Invisible world cube to force camera pivot to centre
     SCNBox *world = [SCNBox boxWithWidth:100 height:100 length:100 chamferRadius:0];
@@ -221,11 +166,30 @@ float points[7][7] = {
     world.materials = @[hiddenMaterial];
     [scene.rootNode addChildNode:worldNode];
 
+
+        // Use a yellow kapton film material for the bed
+    SCNMaterial *bedMaterial = [SCNMaterial material];
+    bedMaterial.diffuse.contents  = [NSColor yellowColor];
+    bedMaterial.specular.contents = [NSColor whiteColor];
+    bedMaterial.shininess = 1.0;
+    bedMaterial.transparency = showBed?0.3f:0.0f;
+    bedMaterial.doubleSided = true;
+
+
         // Create a kapton disc for the reference bed
     SCNCylinder *bed = [SCNCylinder cylinderWithRadius:8.5 height:0.01];
     SCNNode *bedNode = [SCNNode nodeWithGeometry:bed];
     bed.materials = @[bedMaterial];
     [scene.rootNode addChildNode:bedNode];
+
+
+        // Use a clear blue glass material for the glass bed
+    SCNMaterial *glassMaterial = [SCNMaterial material];
+    glassMaterial.diffuse.contents  = [NSColor blueColor];
+    glassMaterial.specular.contents = [NSColor whiteColor];
+    glassMaterial.shininess = 1.0;
+    glassMaterial.transparency = showBed?0.02f:0.0f;
+    glassMaterial.doubleSided = true;
 
         // Create a glass disc for the bed under the kapton film
     SCNCylinder *glass = [SCNCylinder cylinderWithRadius:8.5 height:0.2];
@@ -236,53 +200,7 @@ float points[7][7] = {
 
     if(showTowers)
         {
-            // Add the towers
-        SCNBox *alphaTower = [SCNBox boxWithWidth:1.f height:60.f length:1.f chamferRadius:0.2];
-        SCNNode *alphaTowerNode = [SCNNode nodeWithGeometry:alphaTower];
-        alphaTowerNode.position = SCNVector3Make(sin(DegreesToRadians(300))*10.f, 29, cos(DegreesToRadians(300))*10.f);
-        alphaTower.materials = @[towerMaterial];
-        [bedNode addChildNode:alphaTowerNode];
-
-        SCNBox *betaTower = [SCNBox boxWithWidth:1.f height:60.f length:1.f chamferRadius:0.2];
-        SCNNode *betaTowerNode = [SCNNode nodeWithGeometry:betaTower];
-        betaTowerNode.position = SCNVector3Make(sin(DegreesToRadians(60))*10.f, 29, cos(DegreesToRadians(60))*10.f);
-        betaTower.materials = @[towerMaterial];
-        [bedNode addChildNode:betaTowerNode];
-
-        SCNBox *gammaTower = [SCNBox boxWithWidth:1.f height:60.f length:1.f chamferRadius:0.2];
-        SCNNode *gammaTowerNode = [SCNNode nodeWithGeometry:gammaTower];
-        gammaTowerNode.position = SCNVector3Make(sin(DegreesToRadians(180))*10.f, 29, cos(DegreesToRadians(180))*10.f);
-        gammaTower.materials = @[towerMaterial];
-        [bedNode addChildNode:gammaTowerNode];
-
-
-            // Rotation to make labels vertical and pointing forward
-        CATransform3D towerLabelRot = CATransform3DMakeRotation(DegreesToRadians(90), 0, 0, 1);
-
-            // Label the towers
-        SCNText *alphaText = [SCNText textWithString:@"Alpha (X)" extrusionDepth:4.f];
-        SCNNode *alphaTextNode = [SCNNode nodeWithGeometry:alphaText];
-        alphaTextNode.transform = towerLabelRot;
-        alphaTextNode.position = SCNVector3Make(0.5f, -29, 0);
-        alphaTextNode.transform = CATransform3DScale(alphaTextNode.transform, .025f, .025f, .025f);
-        alphaText.materials = @[towerLabelMaterial];
-        [alphaTowerNode addChildNode:alphaTextNode];
-
-        SCNText *betaText = [SCNText textWithString:@"Beta (Y)" extrusionDepth:4.f];
-        SCNNode *betaTextNode = [SCNNode nodeWithGeometry:betaText];
-        betaTextNode.transform = towerLabelRot;
-        betaTextNode.position = SCNVector3Make(0.5f, -29, 0);
-        betaTextNode.transform = CATransform3DScale(betaTextNode.transform, .025f, .025f, .025f);
-        betaText.materials = @[towerLabelMaterial];
-        [betaTowerNode addChildNode:betaTextNode];
-
-        SCNText *gammaText = [SCNText textWithString:@"Gamma (Z)" extrusionDepth:4.f];
-        SCNNode *gammaTextNode = [SCNNode nodeWithGeometry:gammaText];
-        gammaTextNode.transform = towerLabelRot;
-        gammaTextNode.position = SCNVector3Make(0.5f, -29, 0);
-        gammaTextNode.transform = CATransform3DScale(gammaTextNode.transform, .025f, .025f, .025f);
-        gammaText.materials = @[towerLabelMaterial];
-        [gammaTowerNode addChildNode:gammaTextNode];
+        [bedNode addChildNode: makeTowers() ];
         }
 
 
@@ -292,6 +210,14 @@ float points[7][7] = {
 
     for (int y = 0; y < 7; y++)
         {
+            // Use a yellow material for the grid
+        SCNMaterial *gridLineMaterial = [SCNMaterial material];
+        gridLineMaterial.diffuse.contents  = [NSColor yellowColor];
+        gridLineMaterial.specular.contents = [NSColor blackColor];
+        gridLineMaterial.shininess = 1.0;
+        gridLineMaterial.transparency = 1.f;
+        gridLineMaterial.doubleSided = true;
+
         if(showGrid)
             {
             SCNCylinder *gridLine = [SCNCylinder cylinderWithRadius:0.01f height: getGridLength(y) ];
@@ -332,13 +258,13 @@ float points[7][7] = {
                     {
                         // Use a white glass material for the point labels
                     SCNMaterial *pointLabelMaterial = [SCNMaterial material];
-                    pointLabelMaterial.diffuse.contents  = [NSColor blueColor];
-                    pointLabelMaterial.specular.contents = [NSColor blackColor];
+                    pointLabelMaterial.diffuse.contents  = [NSColor blackColor];
+                    pointLabelMaterial.specular.contents = [NSColor whiteColor];
                     pointLabelMaterial.shininess = 1.0;
                     pointLabelMaterial.transparency = isFake(x,y) ? ( showFakes ? 0.2f : 0.0f ) : 1.0f;
 
                     NSString *label = [NSString stringWithFormat:@"%1.3f", points[y][x]];
-                    SCNText *pointLabel = [SCNText  textWithString: label extrusionDepth:4.f];
+                    SCNText *pointLabel = [SCNText  textWithString: label extrusionDepth:2.f];
                     pointLabel.materials = @[pointLabelMaterial];
                     SCNNode *pointLabelNode = [SCNNode nodeWithGeometry:pointLabel];
                     pointLabelNode.position = SCNVector3Make(-0.1f, ( (points[y][x]>=0) ? 0.1f : -0.6f ), 0);
@@ -346,6 +272,7 @@ float points[7][7] = {
 
                     [pointNode addChildNode:pointLabelNode];
                     }
+
                 [bedNode addChildNode:pointNode];
                 }
 
@@ -367,21 +294,46 @@ float points[7][7] = {
             }
 
 
-        if(showPlane && validData)
+        if(showSurface && validData)
             {
+                // Use a white (appears grey) material for the bed plane
+            SCNMaterial *planeMaterial = [SCNMaterial material];
+            planeMaterial.diffuse.contents  = [NSColor whiteColor];
+            planeMaterial.specular.contents = [NSColor whiteColor];
+            planeMaterial.shininess = 1.0;
+            planeMaterial.transparency = 1.f;
+            planeMaterial.doubleSided = true;
+
+                // Give the plane an image-based diffuse (colour map)
+            SCNMaterial *ColourMapmaterial = [SCNMaterial material];
+            NSImage *diffuseImage =  maketextureImage();
+            ColourMapmaterial.diffuse.contents  = diffuseImage;
+            ColourMapmaterial.specular.contents = [NSColor whiteColor];
+            ColourMapmaterial.shininess = 1.0;
+            ColourMapmaterial.diffuse.minificationFilter = SCNLinearFiltering;
+            ColourMapmaterial.diffuse.magnificationFilter = SCNLinearFiltering;
+            ColourMapmaterial.diffuse.mipFilter = SCNLinearFiltering;
+            ColourMapmaterial.doubleSided = true;
 
             SCNGeometry *geometry = makeSurface();
 
-            geometry.materials = @[planeMaterial];
+            geometry.materials = @[showColourMap ? ColourMapmaterial : planeMaterial];
 
             SCNNode *planeNode = [SCNNode nodeWithGeometry:geometry];
             planeNode.position = SCNVector3Make(0, 0, 0);
             [bedNode addChildNode:planeNode];
-            
             }
+
 
         if(showWireFrame && validData)
             {
+                // Use a black material for the wireframe
+            SCNMaterial *wireFrameMaterial = [SCNMaterial material];
+            wireFrameMaterial.diffuse.contents  = [NSColor blackColor];
+            wireFrameMaterial.specular.contents = [NSColor whiteColor];
+            wireFrameMaterial.shininess = 1.0;
+            wireFrameMaterial.transparency = 1.0f;
+            wireFrameMaterial.doubleSided = true;
 
             SCNGeometry *geometry = makeWireFrame();
 
@@ -390,160 +342,84 @@ float points[7][7] = {
             SCNNode *planeNode = [SCNNode nodeWithGeometry:geometry];
             planeNode.position = SCNVector3Make(0, 0, 0);
             [bedNode addChildNode:planeNode];
-            
             }
+
         }
+
     if (doPrint) {
         [self print:self];
     }
 }
 
-SCNGeometry* makeCube()
+SCNNode* makeTowers()
 {
-    return [SCNBox boxWithWidth:1 height:1 length:1 chamferRadius:0.2];
+    SCNNode *towerNode = [[SCNNode alloc] init];
 
-    SCNVector3 positions[] = {
-        SCNVector3Make(-1, -1,  1),//0 Bottom
-        SCNVector3Make( 1, -1,  1),//1 Bottom
-        SCNVector3Make(-1, -1, -1),//2 Bottom
-        SCNVector3Make( 1, -1, -1),//3 Bottom
+        // Use a blue glass material for the towers
+    SCNMaterial *towerMaterial = [SCNMaterial material];
+    towerMaterial.diffuse.contents  = [NSColor blueColor];
+    towerMaterial.specular.contents = [NSColor whiteColor];
+    towerMaterial.shininess = 1.0;
+    towerMaterial.transparency = 0.04;
+    towerMaterial.doubleSided = true;
 
-        SCNVector3Make(-1,  1,  1),//4 Top
-        SCNVector3Make( 1,  1,  1),//5 Top
-        SCNVector3Make(-1,  1, -1),//6 Top
-        SCNVector3Make( 1,  1, -1),//7 Top
+        // Add the towers
+    SCNBox *alphaTower = [SCNBox boxWithWidth:1.f height:60.f length:1.f chamferRadius:0.2];
+    SCNNode *alphaTowerNode = [SCNNode nodeWithGeometry:alphaTower];
+    alphaTowerNode.position = SCNVector3Make(sin(DegreesToRadians(300))*10.f, 29, cos(DegreesToRadians(300))*10.f);
+    alphaTower.materials = @[towerMaterial];
+    [towerNode addChildNode:alphaTowerNode];
 
-        SCNVector3Make(-1, -1, -1),//8 (2) Back
-        SCNVector3Make( 1, -1, -1),//9 (3) Back
-        SCNVector3Make(-1,  1, -1),//10 (6) Back
-        SCNVector3Make( 1,  1, -1),//11 (7) Back
+    SCNBox *betaTower = [SCNBox boxWithWidth:1.f height:60.f length:1.f chamferRadius:0.2];
+    SCNNode *betaTowerNode = [SCNNode nodeWithGeometry:betaTower];
+    betaTowerNode.position = SCNVector3Make(sin(DegreesToRadians(60))*10.f, 29, cos(DegreesToRadians(60))*10.f);
+    betaTower.materials = @[towerMaterial];
+    [towerNode addChildNode:betaTowerNode];
 
-        SCNVector3Make(-1, -1,  1),//12 (0) Front
-        SCNVector3Make( 1, -1,  1),//13 (1) Front
-        SCNVector3Make(-1,  1,  1),//14 (4) Front
-        SCNVector3Make( 1,  1,  1),//15 (5) Front
-
-        SCNVector3Make(-1, -1,  1),//16 (0) Left
-        SCNVector3Make(-1, -1, -1),//17 (2) Left
-        SCNVector3Make(-1,  1,  1),//18 (4) Left
-        SCNVector3Make(-1,  1, -1),//19 (6) Left
-
-        SCNVector3Make( 1, -1,  1),//20 (1) Right
-        SCNVector3Make( 1, -1, -1),//21 (3) Right
-        SCNVector3Make( 1,  1,  1),//22 (5) Right
-        SCNVector3Make( 1,  1, -1),//23 (7) Right
-    };
-
-    SCNVector3 normals[] = {
-        SCNVector3Make( 0,  0, -1),//Bottom
-        SCNVector3Make( 0,  0, -1),
-        SCNVector3Make( 0,  0, -1),
-        SCNVector3Make( 0,  0, -1),
-
-        SCNVector3Make( 0,  0,  1),//Top
-        SCNVector3Make( 0,  0,  1),
-        SCNVector3Make( 0,  0,  1),
-        SCNVector3Make( 0,  0,  1),
-
-        SCNVector3Make( 0, -1,  0),//Back
-        SCNVector3Make( 0, -1,  0),
-        SCNVector3Make( 0, -1,  0),
-        SCNVector3Make( 0, -1,  0),
-
-        SCNVector3Make( 0,  1,  0),//Front
-        SCNVector3Make( 0,  1,  0),
-        SCNVector3Make( 0,  1,  0),
-        SCNVector3Make( 0,  1,  0),
-        
-        SCNVector3Make(-1,  0,  0),//Left
-        SCNVector3Make(-1,  0,  0),
-        SCNVector3Make(-1,  0,  0),
-        SCNVector3Make(-1,  0,  0),
-
-        SCNVector3Make( 1,  0,  0),//Right
-        SCNVector3Make( 1,  0,  0),
-        SCNVector3Make( 1,  0,  0),
-        SCNVector3Make( 1,  0,  0)
-    };
-
-    CGPoint textures[] = {
-        CGPointMake(-1,  1),//0 Bottom
-        CGPointMake( 1,  1),//1 Bottom
-        CGPointMake(-1, -1),//2 Bottom
-        CGPointMake( 1, -1),//3 Bottom
-
-        CGPointMake(-1,  1),//4 Top
-        CGPointMake( 1,  1),//5 Top
-        CGPointMake(-1, -1),//6 Top
-        CGPointMake( 1, -1),//7 Top
-
-        CGPointMake(-1, -1),//8 (2) Back
-        CGPointMake( 1, -1),//9 (3) Back
-        CGPointMake(-1, -1),//10 (6) Back
-        CGPointMake( 1, -1),//11 (7) Back
-
-        CGPointMake(-1,  1),//12 (0) Front
-        CGPointMake( 1,  1),//13 (1) Front
-        CGPointMake(-1,  1),//14 (4) Front
-        CGPointMake( 1,  1),//15 (5) Front
-
-        CGPointMake(-1,  1),//16 (0) Left
-        CGPointMake(-1, -1),//17 (2) Left
-        CGPointMake(-1,  1),//18 (4) Left
-        CGPointMake(-1, -1),//19 (6) Left
-
-        CGPointMake( 1,  1),//20 (1) Right
-        CGPointMake( 1, -1),//21 (3) Right
-        CGPointMake( 1,  1),//22 (5) Right
-        CGPointMake( 1, -1),//23 (7) Right
-    };
-
-    int indices[] = {
-            // bottom
-        0, 2, 1,
-        1, 2, 3,
-            // back
-        8, 10, 9,
-        9, 10, 11,
-            // left
-        16, 18, 17,
-        17, 18, 19,
-            // right
-        20, 21, 22,
-        21, 23, 22,
-            // front
-        12, 13, 14,
-        13, 15, 14,
-            // top
-        4, 5, 6,
-        5, 7, 6
-    };
-
-    NSData *indexData = [NSData dataWithBytes:indices
-                                       length:sizeof(indices)];
-    SCNGeometryElement *element =
-    [SCNGeometryElement geometryElementWithData:indexData
-                                  primitiveType:SCNGeometryPrimitiveTypeTriangles
-                                 primitiveCount:12
-                                  bytesPerIndex:sizeof(int)];
-
-    SCNGeometrySource *vertexSource =
-    [SCNGeometrySource geometrySourceWithVertices:positions
-                                            count:24];
-    SCNGeometrySource *normalSource =
-    [SCNGeometrySource geometrySourceWithNormals:normals
-                                           count:24];
+    SCNBox *gammaTower = [SCNBox boxWithWidth:1.f height:60.f length:1.f chamferRadius:0.2];
+    SCNNode *gammaTowerNode = [SCNNode nodeWithGeometry:gammaTower];
+    gammaTowerNode.position = SCNVector3Make(sin(DegreesToRadians(180))*10.f, 29, cos(DegreesToRadians(180))*10.f);
+    gammaTower.materials = @[towerMaterial];
+    [towerNode addChildNode:gammaTowerNode];
 
 
-    SCNGeometrySource *textureSource =
-    [SCNGeometrySource geometrySourceWithTextureCoordinates:textures
-                                                      count:24];
+        // Rotation to make labels vertical and pointing forward
+    CATransform3D towerLabelRot = CATransform3DMakeRotation(DegreesToRadians(90), 0, 0, 1);
 
-    SCNGeometry *geometry =
-    [SCNGeometry geometryWithSources:@[vertexSource, normalSource, textureSource]
-                            elements:@[element]];
+        // Use a dark grey glass material for the tower labels
+    SCNMaterial *towerLabelMaterial = [SCNMaterial material];
+    towerLabelMaterial.diffuse.contents  = [NSColor darkGrayColor];
+    towerMaterial.specular.contents = [NSColor blackColor];
+    towerLabelMaterial.shininess = 1.0;
+    towerLabelMaterial.transparency = 1;
+    towerLabelMaterial.doubleSided = true;
 
-    return geometry;
+        // Label the towers
+    SCNText *alphaText = [SCNText textWithString:@"Alpha (X)" extrusionDepth:4.f];
+    SCNNode *alphaTextNode = [SCNNode nodeWithGeometry:alphaText];
+    alphaTextNode.transform = towerLabelRot;
+    alphaTextNode.position = SCNVector3Make(0.5f, -29, 0);
+    alphaTextNode.transform = CATransform3DScale(alphaTextNode.transform, .025f, .025f, .025f);
+    alphaText.materials = @[towerLabelMaterial];
+    [alphaTowerNode addChildNode:alphaTextNode];
+
+    SCNText *betaText = [SCNText textWithString:@"Beta (Y)" extrusionDepth:4.f];
+    SCNNode *betaTextNode = [SCNNode nodeWithGeometry:betaText];
+    betaTextNode.transform = towerLabelRot;
+    betaTextNode.position = SCNVector3Make(0.5f, -29, 0);
+    betaTextNode.transform = CATransform3DScale(betaTextNode.transform, .025f, .025f, .025f);
+    betaText.materials = @[towerLabelMaterial];
+    [betaTowerNode addChildNode:betaTextNode];
+
+    SCNText *gammaText = [SCNText textWithString:@"Gamma (Z)" extrusionDepth:4.f];
+    SCNNode *gammaTextNode = [SCNNode nodeWithGeometry:gammaText];
+    gammaTextNode.transform = towerLabelRot;
+    gammaTextNode.position = SCNVector3Make(0.5f, -29, 0);
+    gammaTextNode.transform = CATransform3DScale(gammaTextNode.transform, .025f, .025f, .025f);
+    gammaText.materials = @[towerLabelMaterial];
+    [gammaTowerNode addChildNode:gammaTextNode];
+
+    return towerNode;
 }
 
 
@@ -563,10 +439,12 @@ SCNGeometry* makeSurface()
             int y1 = showFakes?y:validY(x, y);
             positions[ ( y * 7 ) + x ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
             positions[ ( y * 7 ) + x + 49 ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f)-0.01f, (y1-3) * (8.5f/4.0f));
-            normals[ ( y * 7 ) + x ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
-            normals[ ( y * 7 ) + x + 49 ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f)-0.01f, (y1-3) * (8.5f/4.0f));
-            textures[ ( y * 7 ) + x ] = CGPointMake((x1-3) * (8.5f/4.0f), (y1-3) * (8.5f/4.0f));
-            textures[ ( y * 7 ) + x + 49 ] = CGPointMake((x1-3) * (8.5f/4.0f), (y1-3) * (8.5f/4.0f));
+
+            normals[ ( y * 7 ) + x ] = SCNVector3Make(0,1,0);//(x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
+            normals[ ( y * 7 ) + x + 49 ] = SCNVector3Make(0,1,0);//(x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f)+0.01f, (y1-3) * (8.5f/4.0f));
+
+            textures[ ( y * 7 ) + x ] = CGPointMake((float)x/7, (float)y/7);
+            textures[ ( y * 7 ) + x + 49 ] = CGPointMake((float)x/7, (float)y/7);
 
             int upperBase = ( ( ( y * 6 ) + x ) * 6 );
             int lowerBase = ( ( ( y * 6 ) + x ) * 6 ) + (36 * 2 * 3);
@@ -609,6 +487,7 @@ SCNGeometry* makeSurface()
     return geometry;
 }
 
+
 SCNGeometry* makeWireFrame()
 {
     SCNVector3 positions[98];
@@ -624,11 +503,11 @@ SCNGeometry* makeWireFrame()
             int x1 = showFakes?x:validX(x, y);
             int y1 = showFakes?y:validY(x, y);
             positions[ ( y * 7 ) + x ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
-            positions[ ( y * 7 ) + x + 49 ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
-            normals[ ( y * 7 ) + x ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
-            normals[ ( y * 7 ) + x + 49 ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f)-0.1f, (y1-3) * (8.5f/4.0f));
-            textures[ ( y * 7 ) + x ] = CGPointMake((x1-3) * (8.5f/4.0f), (y1-3) * (8.5f/4.0f));
-            textures[ ( y * 7 ) + x + 49 ] = CGPointMake((x1-3) * (8.5f/4.0f), (y1-3) * (8.5f/4.0f));
+            positions[ ( y * 7 ) + x + 49 ] = SCNVector3Make((x1-3) * (8.5f/4.0f), (points[y1][x1]-(showSurface?0.04:0) * 10.f), (y1-3) * (8.5f/4.0f));
+            normals[ ( y * 7 ) + x ] = SCNVector3Make(0,-1,0);//(x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f), (y1-3) * (8.5f/4.0f));
+            normals[ ( y * 7 ) + x + 49 ] = SCNVector3Make(0,1,0);//(x1-3) * (8.5f/4.0f), (points[y1][x1] * 10.f)-(showSurface?0.04:0), (y1-3) * (8.5f/4.0f));
+            textures[ ( y * 7 ) + x ] = CGPointMake((float)x/7, (float)y/7);
+            textures[ ( y * 7 ) + x + 49 ] = CGPointMake((float)x/7, (float)y/7);
 
             int upperBase = ( ( ( y * 6 ) + x ) * 6 );
             int lowerBase = ( ( ( y * 6 ) + x ) * 6 ) + (36 * 2 * 3);
@@ -654,7 +533,7 @@ SCNGeometry* makeWireFrame()
             }
         }
 
-    SCNGeometrySource *vertexSource = [SCNGeometrySource geometrySourceWithVertices:positions count:49];
+    SCNGeometrySource *vertexSource = [SCNGeometrySource geometrySourceWithVertices:positions count:98];
     SCNGeometrySource *normalSource = [SCNGeometrySource geometrySourceWithNormals:normals count:98];
     SCNGeometrySource *textureSource = [SCNGeometrySource geometrySourceWithTextureCoordinates:textures count:98];
 
@@ -672,6 +551,53 @@ SCNGeometry* makeWireFrame()
 }
 
 
+
+NSImage* maketextureImage()
+{
+    int width = 7;
+    int height = 7;
+
+    char* rgba = (char*)malloc(width*height*4);
+
+    for (int y = 0; y < height; y++)
+        {
+        for (int x = 0; x < width; x++)
+            {
+            int i = y * height + x;
+            NSColor* colour = getPointColor(points[y][x]);
+
+            rgba[4*i+0] = colour.redComponent * 128;
+            rgba[4*i+1] = colour.greenComponent * 128;
+            rgba[4*i+2] = colour.blueComponent * 255;
+            rgba[4*i+3] = 255;
+            }
+        }
+
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef bitmapContext = CGBitmapContextCreate(
+                                                       rgba,
+                                                       width,
+                                                       height,
+                                                       8, // bitsPerComponent
+                                                       4*width, // bytesPerRow
+                                                       colorSpace,
+                                                       (CGBitmapInfo)kCGImageAlphaNoneSkipLast);
+
+    CFRelease(colorSpace);
+
+    CGImageRef cgImage = CGBitmapContextCreateImage(bitmapContext);
+
+    NSSize size = NSMakeSize(7, 7);
+    NSImage* image = [[NSImage alloc] initWithCGImage:cgImage size:size];
+
+    CFRelease(cgImage);
+    CFRelease(bitmapContext);
+    free(rgba);
+    
+    return image;
+}
+
+
 CGFloat DegreesToRadians(CGFloat degrees)
 {
     return degrees * M_PI / 180;
@@ -681,7 +607,7 @@ NSColor* getPointColor(float value)
 {
     float blue = value>0?(value<0.25f?value*4.f:1.f):0.f;
     float red = value<0?(-value<0.25f?-value*4.f:1.f):0.f;
-    float green = 1.f - (red + blue);
+    float green = 1.f - (red);
 
     return [NSColor colorWithCalibratedRed:red green:green blue:blue alpha: 1.0f ];
 }
@@ -737,7 +663,7 @@ int validX(int x, int y)
         case 6:
             return ( x<2 ? 2 : ( x>4 ? 4 : x ) );
             break;
-
+            
         case 1:
         case 5:
             return ( x<1 ? 1 : ( x>5 ? 5 : x ) );

@@ -21,7 +21,8 @@
              pointLabelsOn:(Boolean) mShowPointLabels
                    linesOn:(Boolean) mShowLines
                     gridOn:(Boolean) mShowGrid
-                   planeOn:(Boolean) mShowPlane
+                 surfaceOn:(Boolean) mShowSurface
+               colourMapOn:(Boolean) mShowColourMap
                wireFrameOn:(Boolean) mShowWireFrame;
 
 -(void) setPoints:(NSString *) G29Data;

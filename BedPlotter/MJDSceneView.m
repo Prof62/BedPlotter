@@ -15,7 +15,7 @@
 @implementation MJDSceneView
 
 SCNNode *cameraNode;
-
+SCNScene *scene;
 
 bool spin = false;
 bool showBed = true;
@@ -107,15 +107,10 @@ float points[7][7] = {
 
 - (void) updateUI
 {
-    [self updateUIShowPrintDialog:false printSender:nil];
-}
-
-- (void) updateUIShowPrintDialog:(Boolean) doPrint printSender:(id) sender
-{
     self.backgroundColor = [NSColor darkGrayColor];
 
         // Create an empty scene
-    SCNScene *scene = [SCNScene scene];
+    scene = [SCNScene scene];
     self.scene = scene;
 
         // Create a camera
@@ -345,10 +340,6 @@ float points[7][7] = {
             }
 
         }
-
-    if (doPrint) {
-        [self print:self];
-    }
 }
 
 SCNNode* makeTowers()
@@ -710,5 +701,34 @@ int validY(int x, int y)
 {
     self.pointOfView = cameraNode;
 }
+
+/*
+    //workaround until Snapshot method is available (osX 10.10 and iOS 8)
+- (NSImage*)imageFromSceneKitView:(SCNView*)sceneKitView
+{
+    NSInteger width = sceneKitView.bounds.size.width * self.scene.window.backingScaleFactor;
+    NSInteger height = sceneKitView.bounds.size.height * self.scene.window.backingScaleFactor;
+    NSBitmapImageRep* imageRep=[[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL
+                                                                       pixelsWide:width
+                                                                       pixelsHigh:height
+                                                                    bitsPerSample:8
+                                                                  samplesPerPixel:4
+                                                                         hasAlpha:YES
+                                                                         isPlanar:NO
+                                                                   colorSpaceName:NSCalibratedRGBColorSpace
+                                                                      bytesPerRow:width*4
+                                                                     bitsPerPixel:4*8];
+    [[sceneKitView openGLContext] makeCurrentContext];
+    glReadPixels(0, 0, (int)width, (int)height, GL_RGBA, GL_UNSIGNED_BYTE, [imageRep bitmapData]);
+    [NSOpenGLContext clearCurrentContext];
+    NSImage* outputImage = [[NSImage alloc] initWithSize:NSMakeSize(width, height)];
+    [outputImage addRepresentation:imageRep];
+    NSImage* flippedImage = [NSImage imageWithSize:NSMakeSize(width, height) flipped:YES drawingHandler:^BOOL(NSRect dstRect) {
+        [imageRep drawInRect:dstRect];
+        return YES;
+    }];
+    return flippedImage;
+}
+*/
 
 @end

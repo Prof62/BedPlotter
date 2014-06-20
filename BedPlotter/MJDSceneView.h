@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <SceneKit/SceneKit.h>
+#import "OpenGL/gl.h"
 
 @interface MJDSceneView : SCNView
 
 -(void)homeCamera;
 -(void)updateUI;
--(void) updateUIShowPrintDialog:(Boolean) doPrint printSender:(id) sender;
+
 -(void)setOptionsWithBedOn:(Boolean) mShowBed
                   towersOn:(Boolean) mShowTowers
                    fakesOn:(Boolean) mShowFakes

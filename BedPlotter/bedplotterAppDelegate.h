@@ -33,7 +33,5 @@
 
 - (void)homeCamera:(id)sender;
 - (void)updateUI:(id)sender;
-- (IBAction)printChart:(id)sender;
-
 
 @end

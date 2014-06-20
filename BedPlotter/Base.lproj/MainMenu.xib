@@ -75,9 +75,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Print…" hidden="YES" enabled="NO" keyEquivalent="p" id="aTl-1u-JFS">
+                            <menuItem title="Print…" enabled="NO" keyEquivalent="p" id="aTl-1u-JFS">
                                 <connections>
-                                    <action selector="printChart:" target="Voe-Tx-rLC" id="W84-fI-6wX"/>
+                                    <action selector="print:" target="oVx-ID-ldD" id="JDj-SS-gh5"/>
                                 </connections>
                             </menuItem>
                         </items>

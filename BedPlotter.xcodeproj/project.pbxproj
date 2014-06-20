@@ -19,6 +19,7 @@
 		8722535B19431AEB001B7CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8722535919431AEB001B7CDC /* InfoPlist.strings */; };
 		8722535D19431AEB001B7CDC /* BedPlotterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8722535C19431AEB001B7CDC /* BedPlotterTests.m */; };
 		879BC4F7194F9DDC004E1A80 /* BedPlotter.icns in Resources */ = {isa = PBXBuildFile; fileRef = 879BC4F6194F9DDC004E1A80 /* BedPlotter.icns */; };
+		87FA951B1954069D009D294D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FA951A1954069D009D294D /* OpenGL.framework */; };
 		87FF1025194C736E0043603D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FF1024194C736E0043603D /* QuartzCore.framework */; };
 		87FF1027194C73820043603D /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FF1026194C73820043603D /* SceneKit.framework */; };
 		87FF102A194C75650043603D /* MJDSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FF1029194C75650043603D /* MJDSceneView.m */; };
@@ -55,6 +56,7 @@
 		8722535A19431AEB001B7CDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8722535C19431AEB001B7CDC /* BedPlotterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedPlotterTests.m; sourceTree = "<group>"; };
 		879BC4F6194F9DDC004E1A80 /* BedPlotter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BedPlotter.icns; sourceTree = "<group>"; };
+		87FA951A1954069D009D294D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		87FF1024194C736E0043603D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		87FF1026194C73820043603D /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		87FF1028194C75650043603D /* MJDSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDSceneView.h; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FA951B1954069D009D294D /* OpenGL.framework in Frameworks */,
 				87FF1027194C73820043603D /* SceneKit.framework in Frameworks */,
 				87FF1025194C736E0043603D /* QuartzCore.framework in Frameworks */,
 				8722533319431AEB001B7CDC /* Cocoa.framework in Frameworks */,
@@ -106,6 +109,7 @@
 		8722533119431AEA001B7CDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87FA951A1954069D009D294D /* OpenGL.framework */,
 				87FF1026194C73820043603D /* SceneKit.framework */,
 				87FF1024194C736E0043603D /* QuartzCore.framework */,
 				8722533219431AEA001B7CDC /* Cocoa.framework */,

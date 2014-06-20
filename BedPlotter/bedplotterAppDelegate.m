@@ -36,10 +36,6 @@
     [_sceneView updateUI];
 }
 
-- (IBAction)printChart:(id)sender {
-    [_sceneView updateUIShowPrintDialog:true printSender:sender];
-}
-
 - (IBAction)homeCamera:(id)sender
 {
     [_sceneView homeCamera];

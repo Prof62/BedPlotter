@@ -26,6 +26,8 @@
                colourMapOn:(Boolean) mShowColourMap
                wireFrameOn:(Boolean) mShowWireFrame;
 
--(void) setPoints:(NSString *) G29Data;
+-(void)setPoints:(NSString *) G29Data;
+
+-(void)print:(id)sender;
 
 @end

@@ -107,7 +107,7 @@ float points[7][7] = {
 
 - (void) updateUI
 {
-    self.backgroundColor = [NSColor darkGrayColor];
+    self.backgroundColor = [NSColor lightGrayColor];
 
         // Create an empty scene
     scene = [SCNScene scene];
@@ -702,12 +702,12 @@ int validY(int x, int y)
     self.pointOfView = cameraNode;
 }
 
-/*
+
     //workaround until Snapshot method is available (osX 10.10 and iOS 8)
 - (NSImage*)imageFromSceneKitView:(SCNView*)sceneKitView
 {
-    NSInteger width = sceneKitView.bounds.size.width * self.scene.window.backingScaleFactor;
-    NSInteger height = sceneKitView.bounds.size.height * self.scene.window.backingScaleFactor;
+    NSInteger width = sceneKitView.bounds.size.width * self.window.backingScaleFactor;
+    NSInteger height = sceneKitView.bounds.size.height * self.window.backingScaleFactor;
     NSBitmapImageRep* imageRep=[[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL
                                                                        pixelsWide:width
                                                                        pixelsHigh:height
@@ -729,6 +729,37 @@ int validY(int x, int y)
     }];
     return flippedImage;
 }
-*/
+
+
+-(void)print:(id)sender{
+    [[NSPrintInfo sharedPrintInfo] setHorizontalPagination:NSFitPagination];
+    [[NSPrintInfo sharedPrintInfo] setVerticalPagination:NSFitPagination];
+    [[NSPrintInfo sharedPrintInfo] setOrientation:NSLandscapeOrientation];
+
+    NSImage *image = [self imageFromSceneKitView:self];
+    NSImage *newImage = [[NSImage alloc] initWithSize:[[NSPrintInfo sharedPrintInfo] imageablePageBounds].size];
+
+    [newImage lockFocus];
+
+    [image drawInRect:[[NSPrintInfo sharedPrintInfo] imageablePageBounds]
+             fromRect:NSMakeRect(0.0,
+                                 0.0,
+                                 [image size].width,
+                                 [image size].height)
+            operation:NSCompositeCopy
+             fraction:1.0];
+
+    [newImage unlockFocus];
+
+    NSImageView *printView = [[NSImageView alloc]
+                              initWithFrame:[[NSPrintInfo sharedPrintInfo] imageablePageBounds]];
+
+    [printView setImageScaling:NSScaleProportionally];
+
+    [printView setImage:newImage];
+    
+    [printView print:sender];
+}
+
 
 @end

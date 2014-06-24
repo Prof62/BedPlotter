@@ -101,6 +101,68 @@
          [_sceneView setPoints: _G29Data.stringValue];
          [_sceneView updateUI];
          }
-         }
-         
-         @end
+}
+
+
+- (IBAction)loadPlotData:(id)sender
+{
+        // get the url of a probe data file
+    NSOpenPanel * openPanel = [NSOpenPanel openPanel];
+
+    NSArray * arrayOfExtensions = [NSArray arrayWithObject:@"probe"];
+    [openPanel setAllowedFileTypes:arrayOfExtensions];
+
+    [openPanel setCanChooseFiles:YES];
+    [openPanel setCanChooseDirectories:NO];
+    [openPanel setCanCreateDirectories:NO];
+    [openPanel setAllowsMultipleSelection:NO];
+
+    NSInteger result = [openPanel runModal];
+
+    if (result == NSFileHandlingPanelCancelButton) {
+        return;
+    }
+
+    NSURL *url = [openPanel URL];
+
+        // read the probe data from the file
+    NSString * plotData = [NSString stringWithContentsOfURL:url
+                                               encoding:NSASCIIStringEncoding
+                                                  error:NULL];
+    [_G29Data setStringValue:plotData];
+    [self sendG29Data];
+}
+
+- (IBAction)savePlotData:(id)sender
+{
+        // get the file url
+    NSSavePanel * savePanel = [NSSavePanel savePanel];
+
+    NSArray * arrayOfExtensions = [NSArray arrayWithObject:@"probe"];
+    [savePanel setAllowedFileTypes:arrayOfExtensions];
+
+    [savePanel setCanCreateDirectories:YES];
+
+    NSInteger result = [savePanel runModal];
+    if (result == NSFileHandlingPanelCancelButton) {
+        return;
+    }
+
+    NSURL *url = [savePanel URL];
+
+        //write the probe data to the file
+    BOOL boolResult = [[_G29Data stringValue] writeToURL:url
+                                              atomically:YES
+                                                encoding:NSASCIIStringEncoding
+                                                   error:NULL];
+    if (! boolResult) {
+        [[NSAlert alertWithMessageText:@"Failed to save"
+                         defaultButton:@"Ok"
+                       alternateButton:nil
+                           otherButton:nil
+             informativeTextWithFormat:@"Something went wrong saving your plot data"] runModal];
+    }
+}
+
+
+@end

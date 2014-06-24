@@ -11,6 +11,7 @@
         <customObject id="Voe-Tx-rLC" customClass="bedplotterAppDelegate">
             <connections>
                 <outlet property="G29Data" destination="khX-HO-frF" id="JUd-Pg-08K"/>
+                <outlet property="OpenData" destination="bib-Uj-vzu" id="Bpl-io-0T5"/>
                 <outlet property="hideDummyPointsCheck" destination="zFk-az-ya5" id="mbW-x7-wG5"/>
                 <outlet property="sceneView" destination="oVx-ID-ldD" id="LDl-KB-MgJ"/>
                 <outlet property="showBedCheck" destination="Ry1-7J-MAm" id="oBm-mk-rZe"/>
@@ -71,13 +72,24 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="File" hidden="YES" enabled="NO" id="dMs-cI-mzQ">
+                <menuItem title="File" id="dMs-cI-mzQ">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Print…" enabled="NO" keyEquivalent="p" id="aTl-1u-JFS">
+                            <menuItem title="Open..." keyEquivalent="o" id="sUz-3t-kNb">
                                 <connections>
-                                    <action selector="print:" target="oVx-ID-ldD" id="JDj-SS-gh5"/>
+                                    <action selector="loadPlotData:" target="Voe-Tx-rLC" id="Og0-uJ-mXe"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Save" keyEquivalent="s" id="hnO-io-CWV">
+                                <connections>
+                                    <action selector="savePlotData:" target="Voe-Tx-rLC" id="hxP-Dm-zTA"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="iAR-JN-UmA"/>
+                            <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
+                                <connections>
+                                    <action selector="print:" target="oVx-ID-ldD" id="vEM-8E-8sv"/>
                                 </connections>
                             </menuItem>
                         </items>

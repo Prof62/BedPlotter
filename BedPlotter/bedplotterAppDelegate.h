@@ -16,6 +16,9 @@
 - (IBAction)updateG29Data:(NSButton *)sender;
 - (IBAction)populateDummyData:(id)sender;
 
+- (IBAction)loadPlotData:(id)sender;
+- (IBAction)savePlotData:(id)sender;
+
 @property (weak) IBOutlet NSButton *showBedCheck;
 @property (weak) IBOutlet NSButton *showTowersCheck;
 @property (weak) IBOutlet NSButton *showSurfaceCheck;

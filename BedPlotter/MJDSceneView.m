@@ -45,6 +45,9 @@ float points[7][7] = {
     [self updateUI];
 }
 
+/*
+ * update the chart options ready to redisplay the chart.
+ */
 -(void)setOptionsWithBedOn:(Boolean) mShowBed
                   towersOn:(Boolean) mShowTowers
                    fakesOn:(Boolean) mShowFakes
@@ -68,6 +71,9 @@ float points[7][7] = {
     showWireFrame = mShowWireFrame;
 }
 
+/*
+ * Parse the supplied G29 Probe data into an array for displaying.
+ */
 -(void) setPoints:(NSString *) G29Data
 {
     if ([[G29Data stringByTrimmingCharactersInSet:
@@ -105,9 +111,21 @@ float points[7][7] = {
 
 }
 
+/*
+ * Parameterless redraw (used when options are updated
+ */
 - (void) updateUI
 {
-    self.backgroundColor = [NSColor lightGrayColor];
+    [self updateUIWithPrintOption:false];
+}
+
+/*
+ * Redraw the chart using the current options.
+ * if isPrinting is true use a transparent background.
+ */
+- (void) updateUIWithPrintOption:(bool) isPrinting
+{
+    self.backgroundColor = isPrinting?[NSColor clearColor]:[NSColor lightGrayColor];
 
         // Create an empty scene
     scene = [SCNScene scene];
@@ -146,8 +164,26 @@ float points[7][7] = {
     diffuseLight2.type = SCNLightTypeOmni;
     diffuseLight2.color = [NSColor colorWithDeviceWhite:0.8 alpha:1.0];
     diffuseLight2Node.light = diffuseLight2;
-    diffuseLight2Node.position = SCNVector3Make(-50, 30, -30);
+    diffuseLight2Node.position = SCNVector3Make(-50, -30, -30);
     [scene.rootNode addChildNode:diffuseLight2Node];
+
+        // Create the second upper diffuse light
+    SCNLight *diffuseLight3 = [SCNLight light];
+    SCNNode *diffuseLight3Node = [SCNNode node];
+    diffuseLight3.type = SCNLightTypeOmni;
+    diffuseLight3.color = [NSColor colorWithDeviceWhite:0.4 alpha:1.0];
+    diffuseLight3Node.light = diffuseLight3;
+    diffuseLight3Node.position = SCNVector3Make(30, -25, 18);
+    [scene.rootNode addChildNode:diffuseLight3Node];
+
+        // Create the second lower diffuse light
+    SCNLight *diffuseLight4 = [SCNLight light];
+    SCNNode *diffuseLight4Node = [SCNNode node];
+    diffuseLight4.type = SCNLightTypeOmni;
+    diffuseLight4.color = [NSColor colorWithDeviceWhite:0.4 alpha:1.0];
+    diffuseLight4Node.light = diffuseLight4;
+    diffuseLight4Node.position = SCNVector3Make(-50, 30, -30);
+    [scene.rootNode addChildNode:diffuseLight4Node];
 
 
         // Invisible material for hidden objects
@@ -164,7 +200,7 @@ float points[7][7] = {
 
         // Use a yellow kapton film material for the bed
     SCNMaterial *bedMaterial = [SCNMaterial material];
-    bedMaterial.diffuse.contents  = [NSColor yellowColor];
+    bedMaterial.diffuse.contents  = [NSColor yellowColor];//[NSColor colorWithCalibratedRed:0.75f green:0.80f blue:0.1f alpha:1.0f];
     bedMaterial.specular.contents = [NSColor whiteColor];
     bedMaterial.shininess = 1.0;
     bedMaterial.transparency = showBed?0.3f:0.0f;
@@ -293,10 +329,10 @@ float points[7][7] = {
             {
                 // Use a white (appears grey) material for the bed plane
             SCNMaterial *planeMaterial = [SCNMaterial material];
-            planeMaterial.diffuse.contents  = [NSColor whiteColor];
+            planeMaterial.diffuse.contents  = [NSColor brownColor];
             planeMaterial.specular.contents = [NSColor whiteColor];
             planeMaterial.shininess = 1.0;
-            planeMaterial.transparency = 1.f;
+            planeMaterial.transparency = 1.0f;
             planeMaterial.doubleSided = true;
 
                 // Give the plane an image-based diffuse (colour map)
@@ -342,6 +378,9 @@ float points[7][7] = {
         }
 }
 
+/*
+ * Generate the reference towers to add to the model.
+ */
 SCNNode* makeTowers()
 {
     SCNNode *towerNode = [[SCNNode alloc] init];
@@ -413,7 +452,9 @@ SCNNode* makeTowers()
     return towerNode;
 }
 
-
+/*
+ * Generate a model of the surface by using the points as vertex nodes.
+ */
 SCNGeometry* makeSurface()
 {
     SCNVector3 positions[98];
@@ -478,7 +519,9 @@ SCNGeometry* makeSurface()
     return geometry;
 }
 
-
+/*
+ * Draw a wire frame by joining the points.
+ */
 SCNGeometry* makeWireFrame()
 {
     SCNVector3 positions[98];
@@ -542,7 +585,9 @@ SCNGeometry* makeWireFrame()
 }
 
 
-
+/*
+ * generate a colour map to paint onto the surface of the plane.
+ */
 NSImage* maketextureImage()
 {
     int width = 7;
@@ -589,11 +634,18 @@ NSImage* maketextureImage()
 }
 
 
+/*
+ * Utility function to convert the supplied value into radians.
+ */
 CGFloat DegreesToRadians(CGFloat degrees)
 {
     return degrees * M_PI / 180;
 };
 
+/*
+ * Generate a colour scaled from green at the bed to red or blue at the
+ * upper or lower extremes
+ */
 NSColor* getPointColor(float value)
 {
     float blue = value>0?(value<0.25f?value*4.f:1.f):0.f;
@@ -603,6 +655,9 @@ NSColor* getPointColor(float value)
     return [NSColor colorWithCalibratedRed:red green:green blue:blue alpha: 1.0f ];
 }
 
+/*
+ * return the length of the non-fake region for the specified row.
+ */
 float getGridLength(int row)
 {
     float segment = ( 8.5f / 4.0f );
@@ -630,6 +685,9 @@ float getGridLength(int row)
     }
 }
 
+/*
+ * Returns false for fake points added to pad out the points outside of the probed disk area.
+ */
 Boolean isFake(int x, int y)
 {
     if ( (x==0 || x==6) && (y==0 || y==1 || y==5 || y==6) )
@@ -646,6 +704,9 @@ Boolean isFake(int x, int y)
         }
 }
 
+/*
+ * Returns closest valid X coordinate for fake points outside of the probed disk area.
+ */
 int validX(int x, int y)
 {
     return x;
@@ -672,6 +733,9 @@ int validX(int x, int y)
     }
 }
 
+/*
+ * Returns closest valid Y coordinate for fake points outside of the probed disk area.
+ */
 int validY(int x, int y)
 {
     switch (x) {
@@ -703,7 +767,10 @@ int validY(int x, int y)
 }
 
 
-    //workaround until Snapshot method is available (osX 10.10 and iOS 8)
+/*
+ * Capture a snapshot of the current chart after first forcing a redraw
+ * (Workaround until Snapshot method is available in osX 10.10 and iOS 8)
+ */
 - (NSImage*)imageFromSceneKitView:(SCNView*)sceneKitView
 {
     NSInteger width = sceneKitView.bounds.size.width * self.window.backingScaleFactor;
@@ -719,6 +786,8 @@ int validY(int x, int y)
                                                                       bytesPerRow:width*4
                                                                      bitsPerPixel:4*8];
     [[sceneKitView openGLContext] makeCurrentContext];
+    [self.window display ];
+
     glReadPixels(0, 0, (int)width, (int)height, GL_RGBA, GL_UNSIGNED_BYTE, [imageRep bitmapData]);
     [NSOpenGLContext clearCurrentContext];
     NSImage* outputImage = [[NSImage alloc] initWithSize:NSMakeSize(width, height)];
@@ -730,14 +799,23 @@ int validY(int x, int y)
     return flippedImage;
 }
 
-
+/*
+ * Hook to allow printing of the current chart in the ViewKit
+ */
 -(void)print:(id)sender{
     [[NSPrintInfo sharedPrintInfo] setHorizontalPagination:NSFitPagination];
     [[NSPrintInfo sharedPrintInfo] setVerticalPagination:NSFitPagination];
     [[NSPrintInfo sharedPrintInfo] setOrientation:NSLandscapeOrientation];
 
+    [self updateUIWithPrintOption:true];
+
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]];
+
     NSImage *image = [self imageFromSceneKitView:self];
     NSImage *newImage = [[NSImage alloc] initWithSize:[[NSPrintInfo sharedPrintInfo] imageablePageBounds].size];
+
+    [self updateUIWithPrintOption:false];
+    [self.window display ];
 
     [newImage lockFocus];
 
@@ -751,14 +829,18 @@ int validY(int x, int y)
 
     [newImage unlockFocus];
 
+
     NSImageView *printView = [[NSImageView alloc]
                               initWithFrame:[[NSPrintInfo sharedPrintInfo] imageablePageBounds]];
 
     [printView setImageScaling:NSScaleProportionally];
 
     [printView setImage:newImage];
-    
+
     [printView print:sender];
+
+
+
 }
 
 

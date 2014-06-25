@@ -394,8 +394,8 @@
                             <action selector="GD29DataChanged:" target="Voe-Tx-rLC" id="WeP-Os-n3D"/>
                         </connections>
                     </textField>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Ry1-7J-MAm">
-                        <rect key="frame" x="18" y="98" width="100" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ry1-7J-MAm">
+                        <rect key="frame" x="18" y="92" width="100" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="96" id="eT6-tp-K7T"/>
@@ -408,8 +408,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="hxi-cE-xP4"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="lzC-aM-UkT">
-                        <rect key="frame" x="139" y="18" width="66" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lzC-aM-UkT">
+                        <rect key="frame" x="139" y="12" width="66" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="62" id="aOB-S8-vWt"/>
@@ -422,8 +422,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="9jj-ha-Iyo"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="nso-bP-Wvs">
-                        <rect key="frame" x="139" y="98" width="150" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nso-bP-Wvs">
+                        <rect key="frame" x="139" y="92" width="150" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="146" id="0Db-9m-jog"/>
@@ -436,8 +436,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="sh5-Ti-Tdw"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="juT-XR-YX2">
-                        <rect key="frame" x="139" y="58" width="84" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="juT-XR-YX2">
+                        <rect key="frame" x="139" y="52" width="84" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="BS6-Nq-CCQ"/>
@@ -450,8 +450,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="aLp-fP-8sp"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="6IV-PO-HKA">
-                        <rect key="frame" x="139" y="78" width="98" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IV-PO-HKA">
+                        <rect key="frame" x="139" y="72" width="98" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="94" id="9MY-NT-Vur"/>
@@ -464,8 +464,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="WVQ-C7-UlQ"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="NCU-o3-miW">
-                        <rect key="frame" x="18" y="78" width="69" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCU-o3-miW">
+                        <rect key="frame" x="18" y="72" width="69" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="bbz-40-nL7"/>
@@ -478,8 +478,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="dfB-66-vFI"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="T6g-b1-jMv">
-                        <rect key="frame" x="18" y="18" width="49" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6g-b1-jMv">
+                        <rect key="frame" x="18" y="12" width="49" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="4HP-H6-wep"/>
@@ -492,8 +492,8 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="8gK-RO-0qZ"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="zFk-az-ya5">
-                        <rect key="frame" x="139" y="38" width="146" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFk-az-ya5">
+                        <rect key="frame" x="139" y="32" width="146" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="142" id="b7D-Ke-0IA"/>
@@ -534,8 +534,8 @@
                             <action selector="updateG29Data:" target="Voe-Tx-rLC" id="Muf-Uk-764"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Q7u-Qg-489">
-                        <rect key="frame" x="18" y="38" width="93" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7u-Qg-489">
+                        <rect key="frame" x="18" y="32" width="93" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="89" id="Sbr-df-88y"/>
@@ -562,8 +562,8 @@
                             <action selector="populateDummyData:" target="Voe-Tx-rLC" id="FPe-eq-Suz"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="uqJ-h2-rTe">
-                        <rect key="frame" x="18" y="58" width="100" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqJ-h2-rTe">
+                        <rect key="frame" x="18" y="52" width="100" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="96" id="pfu-dL-mS2"/>
@@ -576,6 +576,19 @@
                             <action selector="checkChanged:" target="Voe-Tx-rLC" id="Od1-m1-FrA"/>
                         </connections>
                     </button>
+                    <box autoresizesSubviews="NO" title="Display Options" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="gKS-yl-SqT">
+                        <rect key="frame" x="9" y="2" width="295" height="129"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="293" height="113"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="289" id="Kg7-1e-dBv"/>
+                        </constraints>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
                 </subviews>
                 <constraints>
                     <constraint firstItem="juT-XR-YX2" firstAttribute="top" secondItem="6IV-PO-HKA" secondAttribute="bottom" constant="6" id="0Gh-gV-K2g"/>
@@ -590,6 +603,7 @@
                     <constraint firstItem="Q7u-Qg-489" firstAttribute="top" secondItem="uqJ-h2-rTe" secondAttribute="bottom" constant="6" id="BZr-Ey-wVI"/>
                     <constraint firstItem="NCU-o3-miW" firstAttribute="top" secondItem="Ry1-7J-MAm" secondAttribute="bottom" constant="6" id="C6J-ad-Ude"/>
                     <constraint firstItem="NCU-o3-miW" firstAttribute="leading" secondItem="Ry1-7J-MAm" secondAttribute="leading" id="DLj-bF-vdu"/>
+                    <constraint firstItem="gKS-yl-SqT" firstAttribute="top" secondItem="oVx-ID-ldD" secondAttribute="bottom" constant="2" id="KNc-0V-X4u"/>
                     <constraint firstItem="Ry1-7J-MAm" firstAttribute="top" secondItem="oVx-ID-ldD" secondAttribute="bottom" constant="19" id="L5x-Gg-jyK"/>
                     <constraint firstItem="Ry1-7J-MAm" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="N4R-Fz-7k2"/>
                     <constraint firstItem="gkd-W4-1IQ" firstAttribute="leading" secondItem="MBw-F0-kvF" secondAttribute="leading" id="NlN-7B-V4A"/>
@@ -602,7 +616,9 @@
                     <constraint firstItem="DL8-wv-rLn" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="2" id="XPz-q0-2UR"/>
                     <constraint firstItem="Q7u-Qg-489" firstAttribute="leading" secondItem="T6g-b1-jMv" secondAttribute="leading" id="dve-x1-g4l"/>
                     <constraint firstAttribute="trailing" secondItem="oVx-ID-ldD" secondAttribute="trailing" constant="20" id="eaP-Pd-5GL"/>
+                    <constraint firstItem="MBw-F0-kvF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gKS-yl-SqT" secondAttribute="trailing" constant="20" id="fyR-Dd-yKu"/>
                     <constraint firstItem="zGr-ZT-cKc" firstAttribute="top" secondItem="oVx-ID-ldD" secondAttribute="bottom" constant="3" id="gAQ-7g-eBz"/>
+                    <constraint firstItem="gKS-yl-SqT" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" id="gLc-XL-hk7"/>
                     <constraint firstItem="uqJ-h2-rTe" firstAttribute="top" secondItem="NCU-o3-miW" secondAttribute="bottom" constant="6" id="gNy-v1-tL1"/>
                     <constraint firstItem="MBw-F0-kvF" firstAttribute="top" secondItem="gkd-W4-1IQ" secondAttribute="top" constant="-1" id="i6P-zH-Cre"/>
                     <constraint firstItem="gkd-W4-1IQ" firstAttribute="top" secondItem="oVx-ID-ldD" secondAttribute="bottom" constant="3" id="iSU-HE-Lt4"/>
@@ -610,6 +626,7 @@
                     <constraint firstItem="6IV-PO-HKA" firstAttribute="top" secondItem="nso-bP-Wvs" secondAttribute="bottom" constant="6" id="oYR-yp-0Ke"/>
                     <constraint firstItem="oVx-ID-ldD" firstAttribute="top" secondItem="Mr6-of-hew" secondAttribute="bottom" constant="1" id="ol0-gi-RoX"/>
                     <constraint firstItem="Q7u-Qg-489" firstAttribute="leading" secondItem="uqJ-h2-rTe" secondAttribute="leading" id="pUo-ba-beT"/>
+                    <constraint firstAttribute="bottom" secondItem="gKS-yl-SqT" secondAttribute="bottom" constant="6" id="pbi-xi-eg3"/>
                     <constraint firstItem="zFk-az-ya5" firstAttribute="top" secondItem="juT-XR-YX2" secondAttribute="bottom" constant="6" id="rv5-xs-XHO"/>
                     <constraint firstItem="oVx-ID-ldD" firstAttribute="trailing" secondItem="zGr-ZT-cKc" secondAttribute="trailing" id="tJz-8b-Gn0"/>
                     <constraint firstAttribute="bottom" secondItem="T6g-b1-jMv" secondAttribute="bottom" constant="20" id="tZe-tq-mgI"/>

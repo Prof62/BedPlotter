@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		870EE510195A1DFF00065FBC /* Cool Yule.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 870EE50F195A1DFF00065FBC /* Cool Yule.jpeg */; };
 		8722533319431AEB001B7CDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8722533219431AEA001B7CDC /* Cocoa.framework */; };
 		8722533D19431AEB001B7CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8722533B19431AEB001B7CDC /* InfoPlist.strings */; };
 		8722533F19431AEB001B7CDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8722533E19431AEB001B7CDC /* main.m */; };
@@ -19,7 +18,6 @@
 		8722535319431AEB001B7CDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8722533219431AEA001B7CDC /* Cocoa.framework */; };
 		8722535B19431AEB001B7CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8722535919431AEB001B7CDC /* InfoPlist.strings */; };
 		8722535D19431AEB001B7CDC /* BedPlotterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8722535C19431AEB001B7CDC /* BedPlotterTests.m */; };
-		879BC4F7194F9DDC004E1A80 /* BedPlotter.icns in Resources */ = {isa = PBXBuildFile; fileRef = 879BC4F6194F9DDC004E1A80 /* BedPlotter.icns */; };
 		87FA951B1954069D009D294D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FA951A1954069D009D294D /* OpenGL.framework */; };
 		87FF1025194C736E0043603D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FF1024194C736E0043603D /* QuartzCore.framework */; };
 		87FF1027194C73820043603D /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FF1026194C73820043603D /* SceneKit.framework */; };
@@ -37,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		870EE50F195A1DFF00065FBC /* Cool Yule.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Cool Yule.jpeg"; path = "../../../Pictures/Cool Yule.jpeg"; sourceTree = "<group>"; };
 		8722532F19431AEA001B7CDC /* BedPlotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedPlotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8722533219431AEA001B7CDC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8722533519431AEB001B7CDC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -57,7 +54,6 @@
 		8722535819431AEB001B7CDC /* BedPlotterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedPlotterTests-Info.plist"; sourceTree = "<group>"; };
 		8722535A19431AEB001B7CDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8722535C19431AEB001B7CDC /* BedPlotterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedPlotterTests.m; sourceTree = "<group>"; };
-		879BC4F6194F9DDC004E1A80 /* BedPlotter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BedPlotter.icns; sourceTree = "<group>"; };
 		87FA951A1954069D009D294D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		87FF1024194C736E0043603D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		87FF1026194C73820043603D /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
@@ -148,8 +144,6 @@
 		8722533919431AEB001B7CDC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				870EE50F195A1DFF00065FBC /* Cool Yule.jpeg */,
-				879BC4F6194F9DDC004E1A80 /* BedPlotter.icns */,
 				8722533A19431AEB001B7CDC /* BedPlotter-Info.plist */,
 				8722533B19431AEB001B7CDC /* InfoPlist.strings */,
 				8722533E19431AEB001B7CDC /* main.m */,
@@ -260,8 +254,6 @@
 				8722533D19431AEB001B7CDC /* InfoPlist.strings in Resources */,
 				8722534B19431AEB001B7CDC /* Images.xcassets in Resources */,
 				8722534319431AEB001B7CDC /* Credits.rtf in Resources */,
-				879BC4F7194F9DDC004E1A80 /* BedPlotter.icns in Resources */,
-				870EE510195A1DFF00065FBC /* Cool Yule.jpeg in Resources */,
 				8722534919431AEB001B7CDC /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
